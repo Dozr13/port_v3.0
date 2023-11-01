@@ -1,113 +1,182 @@
-import Image from 'next/image'
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import HoverLinkCard from "../components/hover-link-card";
+import {
+  MID_GROUND_COLOR,
+  PRIMARY_COLOR,
+  SECONDARY_BACKGROUND_COLOR,
+  SECONDARY_COLOR,
+} from "../constants/color-palette";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box
+      sx={{
+        flexGrow: 1,
+        backgroundColor: SECONDARY_BACKGROUND_COLOR,
+        padding: 5,
+        borderRadius: 15,
+      }}
+    >
+      <Header />
+
+      {/* Introduction */}
+      <Box
+        sx={{
+          p: 2,
+          backgroundImage: `linear-gradient(45deg, ${SECONDARY_COLOR}, ${MID_GROUND_COLOR})`,
+          borderRadius: 18,
+          display: "inline-block",
+          mb: 8,
+        }}
+      >
+        <Box
+          sx={{
+            background: "#094f6e",
+            borderRadius: 15,
+            padding: 2,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
+            Hi, I&apos;m Wade,
+          </Typography>
+          <Typography variant="h5" sx={{ color: PRIMARY_COLOR }}>
+            Welcome to my Portfolio
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* Grid Intro Parts */}
+      <Grid container spacing={4}>
+        {/* About Me */}
+
+        <Grid item md={6} xs={12}>
+          <HoverLinkCard
+            href="/about"
+            title="About Me"
+            description="Hi there! I'm Wade, a passionate full-stack developer skilled in React TypeScript, GraphQL, and much more. I have a strong affinity for Material UI when it comes to styling. Dive in to know more about my journey and skills."
+          />
+        </Grid>
+
+        {/* Add a photo or avatar */}
+
+        {/* Projects */}
+        {/* // TODO: Work on implementing Projects to take up row 1 col 2 AND row 2 col 2 */}
+        <Grid item md={6} xs={12}>
+          <HoverLinkCard
+            href="/projects"
+            title="Projects"
+            description="Loop Through Projects here"
+            descriptionLineTwo="HEREEEEE"
+          />
+        </Grid>
+
+        {/* Skills */}
+        <Grid item md={6} xs={12}>
+          <Card
+            sx={{
+              backgroundColor: MID_GROUND_COLOR,
+              borderRadius: "10px",
+              padding: 4,
+              color: "#e4f5ff",
+            }}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Skills
+              </Typography>
+              <Typography variant="body2">
+                <strong>Languages & Frameworks:</strong>
+                - React & Next.js for advanced UI/UX, TypeScript for
+                type-checking. - GraphQL with Apollo Client for API management.
+                - Vue.js, Nuxt for component architecture & Vuex.
+                <br />
+                <br />
+                <strong>Libraries & Tools:</strong>
+                - Material UI for UI components, Tailwind CSS & SASS for styles.
+                - Firebase: Auth, Firestore, and cloud functions.
+                <br />
+                <br />
+                <strong>Dev Practices:</strong>- Responsive Design, SEO
+                Optimization with meta tags and SSR. - Performance Tuning: Lazy
+                loading, code splitting, asset optimization.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        {/* Experience */}
+        <Grid item md={6} xs={12}>
+          <Card
+            sx={{
+              backgroundColor: "#2d7a9c",
+              borderRadius: "10px",
+              padding: "20px",
+              color: "#e4f5ff",
+            }}
+          >
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Experience
+              </Typography>
+              <Typography variant="body2">
+                <strong>
+                  Full Stack Developer at Hidden Mountain Data – Meridian, Idaho
+                </strong>
+                (July 2023 – Present)
+                <br />
+                - Redesigned [specific website], achieving a 15% increase in
+                daily visitors.
+                <br />
+                - Optimized website performance, decreasing load times by 25%.
+                <br /> - Mentored junior developers, enhancing team
+                productivity.
+                <br />
+                <br />
+                <strong>
+                  Software Engineer at In Time Tec – Meridian, Idaho
+                </strong>
+                (July 2021 – May 2023)
+                <br />
+                - Led development of [specific project], resulting in [specific
+                achievement].
+                <br />
+                - Collaborated with design and product teams on interactive web
+                applications.
+                <br /> - Introduced unit testing, improving code reliability by
+                30%.
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        {/* Blog Posts */}
+        <Grid item md={6} xs={12}>
+          <HoverLinkCard
+            href="/blog"
+            title="Blog"
+            description="Pull latest articles"
+            descriptionLineTwo="HEREEEEE"
+          />
+        </Grid>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        {/* Contact Me */}
+        <Grid item md={6} xs={12}>
+          <HoverLinkCard
+            href="/contact"
+            title="Contact"
+            description="Hmm, small form perhaps or maybe something else like:"
+            descriptionLineTwo="Let's get to know each other!"
+          />
+        </Grid>
+      </Grid>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      {/* Footer */}
+      <footer>
+        <Footer />
+      </footer>
+    </Box>
+  );
 }

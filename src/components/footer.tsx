@@ -17,6 +17,15 @@ export default function Footer() {
         padding: 3,
         borderTop: `1px solid ${MID_GROUND_COLOR}`,
         marginTop: 3,
+        "& svg": {
+          fontSize: "2em",
+        },
+        "@media (max-width: 600px)": {
+          borderRadius: 4,
+          "& svg": {
+            fontSize: "1.5em",
+          },
+        },
       }}
     >
       <Box
@@ -24,6 +33,9 @@ export default function Footer() {
           display: "flex",
           gap: 2,
           mb: 2,
+          "@media (max-width: 600px)": {
+            gap: 6,
+          },
         }}
       >
         <Link
@@ -56,7 +68,11 @@ export default function Footer() {
           <FaFileAlt color={PRIMARY_COLOR} size="1.5em" />
         </Link>
       </Box>
-      <Typography variant="body2" color={PRIMARY_COLOR}>
+      <Typography
+        variant="body2"
+        color={PRIMARY_COLOR}
+        sx={{ textAlign: "center" }}
+      >
         © {new Date().getFullYear()} Wade Pate. All rights reserved.
       </Typography>
     </Box>

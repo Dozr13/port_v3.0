@@ -1,4 +1,5 @@
 import { ButtonBase, Card, CardContent, Link, Typography } from "@mui/material";
+import { Fragment } from "react";
 import {
   MID_GROUND_COLOR,
   PRIMARY_COLOR,
@@ -6,10 +7,10 @@ import {
 } from "../constants/color-palette";
 
 interface HoverLinkCardProps {
-  href: string | undefined;
+  href: string;
   title: string;
-  description: string;
-  descriptionLineTwo?: string;
+  description: string | JSX.Element | (string | JSX.Element)[];
+  descriptionLineTwo?: string | JSX.Element;
 }
 
 const HoverLinkCard = ({
@@ -20,12 +21,13 @@ const HoverLinkCard = ({
 }: HoverLinkCardProps) => {
   return (
     <Link href={href} underline="none">
-      <ButtonBase component="div">
+      <ButtonBase component="div" style={{ display: "flex", height: "100%" }}>
         <Card
           sx={{
+            height: "100%",
             backgroundColor: MID_GROUND_COLOR,
-            borderRadius: "10px",
-            padding: "20px",
+            borderRadius: 2,
+            p: 2,
             color: PRIMARY_COLOR,
             boxShadow: "0 3px 5px rgba(0, 0, 0, 0.3)",
             transition: "all 0.3s ease",
@@ -42,7 +44,14 @@ const HoverLinkCard = ({
             <Typography variant="h5" component="div">
               {title}
             </Typography>
-            <Typography variant="body2">{description}</Typography>
+            <br />
+            <Typography variant="body1">
+              {Array.isArray(description)
+                ? description.map((item, index) => (
+                    <Fragment key={index}>{item}</Fragment>
+                  ))
+                : description}
+            </Typography>
             {descriptionLineTwo && (
               <Typography variant="body2">{descriptionLineTwo}</Typography>
             )}

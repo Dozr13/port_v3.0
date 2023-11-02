@@ -2,7 +2,7 @@ export const projectData = [
   {
     title: "ShiftScribe",
     description:
-      "ShiftScribe is a React Native App built with Expo, also it is connected to https://www.shiftscribe.com for easy administrator configuration. The app is a time tracker which allows for company owners to have a centralized location to view employee hours, job locations, names, and more. While the employees can seamlessly log their time, and edit if and when needed as well.",
+      "ShiftScribe is an integrated time-tracking solution built for businesses to centralize employee work hours, job locations, and other crucial details. The React Native mobile app interfaces seamlessly with its web counterpart at shiftscribe.com, enabling administrators to manage configurations effortlessly. Employees benefit from an intuitive platform to log and adjust their hours, ensuring accuracy and transparency.",
     githubLink: "https://github.com/Dozr13/ShiftScribe",
     iosLink: "https://apps.apple.com/us/app/shiftscribe/id6450401614",
     androidLink:

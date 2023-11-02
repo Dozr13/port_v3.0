@@ -4,13 +4,13 @@ import {
   MID_GROUND_COLOR,
   PRIMARY_COLOR,
   SECONDARY_BACKGROUND_COLOR,
-} from "../constants/color-palette";
+} from "../../constants/color-palette";
 
 interface HoverLinkCardProps {
-  href: string;
   title: string;
   description: string | JSX.Element | (string | JSX.Element)[];
   descriptionLineTwo?: string | JSX.Element;
+  href?: string;
 }
 
 const HoverLinkCard = ({
@@ -20,7 +20,7 @@ const HoverLinkCard = ({
   descriptionLineTwo,
 }: HoverLinkCardProps) => {
   return (
-    <Link href={href} underline="none">
+    <Link href={href || "#!"} underline="none">
       <ButtonBase component="div" style={{ display: "flex", height: "100%" }}>
         <Card
           sx={{
@@ -31,13 +31,15 @@ const HoverLinkCard = ({
             color: PRIMARY_COLOR,
             boxShadow: "0 3px 5px rgba(0, 0, 0, 0.3)",
             transition: "all 0.3s ease",
-            "&:hover": {
-              backgroundColor: SECONDARY_BACKGROUND_COLOR,
-              color: PRIMARY_COLOR,
-              transform: "scale(1.05)",
-              boxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
-            },
-            cursor: "pointer",
+            ...(href && {
+              "&:hover": {
+                backgroundColor: SECONDARY_BACKGROUND_COLOR,
+                color: PRIMARY_COLOR,
+                transform: "scale(1.05)",
+                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
+              },
+            }),
+            cursor: href ? "pointer" : "default",
           }}
         >
           <CardContent>

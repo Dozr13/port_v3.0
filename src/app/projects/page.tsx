@@ -1,12 +1,5 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  IconButton,
-  Typography,
-} from "@mui/material";
-import { FaAndroid, FaApple, FaGithub, FaGlobe } from "react-icons/fa";
+import { Box, Grid, Typography } from "@mui/material";
+import ProjectCard from "../../components/cards/project-card";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import {
@@ -37,61 +30,39 @@ export default function Projects() {
           textAlign: "center",
         }}
       >
-        <Typography variant="h3" sx={{ color: MID_GROUND_COLOR }}>
-          My Projects
-        </Typography>
+        <Box
+          sx={{
+            flexGrow: 1,
+            height: "100%",
+            background: "#094f6e",
+            borderRadius: 15,
+            padding: 2,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
+            My Projects
+          </Typography>
+          <Typography variant="subtitle1" sx={{ color: PRIMARY_COLOR, mt: 2 }}>
+            Many of my most impactful contributions to projects with companies
+            like HP, PlexTrac, and SymLiv are bound by NDAs. Hence, while you
+            might find limited projects listed here, I bring to the table a
+            wealth of experience from diverse, large-scale projects.
+          </Typography>
+        </Box>
       </Box>
 
       <Grid container spacing={4}>
         {projectData.map((project, index) => (
           <Grid item md={6} xs={12} key={index}>
-            <Card
-              sx={{
-                backgroundColor: MID_GROUND_COLOR,
-                borderRadius: "10px",
-                padding: 4,
-                color: PRIMARY_COLOR,
-              }}
-            >
-              <CardContent>
-                <Typography variant="h5">{project.title}</Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  {project.description}
-                </Typography>
-                <IconButton
-                  aria-label="GitHub link"
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGithub sx={{ color: PRIMARY_COLOR }} />
-                </IconButton>
-                <IconButton
-                  aria-label="Website link"
-                  href={project.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaGlobe sx={{ color: PRIMARY_COLOR }} />
-                </IconButton>
-                <IconButton
-                  aria-label="iOS link"
-                  href={project.iosLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaApple sx={{ color: PRIMARY_COLOR }} />
-                </IconButton>
-                <IconButton
-                  aria-label="Android link"
-                  href={project.androidLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaAndroid sx={{ color: PRIMARY_COLOR }} />
-                </IconButton>
-              </CardContent>
-            </Card>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              githubLink={project.githubLink}
+              website={project.website}
+              iosLink={project.iosLink}
+              androidLink={project.androidLink}
+            />
           </Grid>
         ))}
       </Grid>

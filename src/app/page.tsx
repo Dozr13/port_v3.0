@@ -11,9 +11,9 @@ import {
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 import { useState } from "react";
+import HoverLinkCard from "../components/cards/hover-card";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import HoverLinkCard from "../components/hover-link-card";
 import {
   MID_GROUND_COLOR,
   PRIMARY_COLOR,

@@ -5,6 +5,7 @@ import {
   PRIMARY_COLOR,
   SECONDARY_BACKGROUND_COLOR,
 } from "../constants/color-palette";
+import Chatbot from "./Chatbot";
 
 export default function Footer() {
   return (
@@ -13,6 +14,7 @@ export default function Footer() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        position: "relative",
         backgroundColor: SECONDARY_BACKGROUND_COLOR,
         padding: 3,
         borderTop: `1px solid ${MID_GROUND_COLOR}`,
@@ -28,6 +30,18 @@ export default function Footer() {
         },
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          top: { xs: 0, sm: "initial" }, // On mobile it's at the top, on larger screens it's back to its normal position
+          right: 10,
+          bottom: { xs: "initial", sm: 0 }, // On mobile it doesn't stick to the bottom, on larger screens it does
+          zIndex: 1, // This ensures the chatbot is above other elements
+        }}
+      >
+        <Chatbot />
+      </Box>
+
       <Box
         sx={{
           display: "flex",

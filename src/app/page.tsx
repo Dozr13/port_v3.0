@@ -18,7 +18,6 @@ import {
   MID_GROUND_COLOR,
   PRIMARY_COLOR,
   SECONDARY_BACKGROUND_COLOR,
-  SECONDARY_COLOR,
 } from "../constants/color-palette";
 
 export default function Home() {
@@ -34,12 +33,12 @@ export default function Home() {
   };
 
   return (
+    // ! REMOVE THE GRADIENT
     <Box
       sx={{
         flexGrow: 1,
         backgroundColor: SECONDARY_BACKGROUND_COLOR,
         padding: 5,
-        borderRadius: 15,
         "@media (max-width:600px)": {
           backgroundColor: "transparent",
           flexGrow: 0,
@@ -49,7 +48,7 @@ export default function Home() {
       <Header />
 
       {/* Introduction */}
-      <Box
+      {/* <Box
         sx={{
           p: 2,
           backgroundImage: `linear-gradient(45deg, ${SECONDARY_COLOR}, ${MID_GROUND_COLOR})`,
@@ -57,41 +56,40 @@ export default function Home() {
           display: "inline-block",
           mb: 8,
         }}
+      > */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          height: "100%",
+          background: "#094f6e",
+          textAlign: "center",
+          m: 4,
+        }}
       >
-        <Box
+        <Typography
+          variant="h3"
           sx={{
-            flexGrow: 1,
-            height: "100%",
-            background: "#094f6e",
-            borderRadius: 15,
-            padding: 2,
-            textAlign: "center",
+            color: PRIMARY_COLOR,
+            "@media (max-width:600px)": {
+              fontSize: "2rem",
+            },
           }}
         >
-          <Typography
-            variant="h3"
-            sx={{
-              color: PRIMARY_COLOR,
-              "@media (max-width:600px)": {
-                fontSize: "2rem",
-              },
-            }}
-          >
-            Hi, I&apos;m Wade,
-          </Typography>
-          <Typography
-            variant="h5"
-            sx={{
-              color: PRIMARY_COLOR,
-              "@media (max-width:600px)": {
-                fontSize: "1rem",
-              },
-            }}
-          >
-            Welcome to my Portfolio
-          </Typography>
-        </Box>
+          Hi, I&apos;m Wade,
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: PRIMARY_COLOR,
+            "@media (max-width:600px)": {
+              fontSize: "1rem",
+            },
+          }}
+        >
+          Welcome to my Portfolio
+        </Typography>
       </Box>
+      {/* </Box> */}
 
       {/* Grid Intro Parts */}
       <Grid container spacing={4}>

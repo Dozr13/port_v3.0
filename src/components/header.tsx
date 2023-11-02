@@ -49,6 +49,7 @@ const Header = () => {
         position: "absolute",
         top: 0,
         background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
+        opacity: "70%",
         borderBottom: `2px solid ${PRIMARY_COLOR}`,
       }}
     >

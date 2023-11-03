@@ -23,7 +23,6 @@ export default function Page() {
         flexGrow: 1,
         backgroundColor: SECONDARY_BACKGROUND_COLOR,
         padding: 5,
-        borderRadius: 15,
       }}
     >
       <Header />

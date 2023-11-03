@@ -1,5 +1,9 @@
 import { Theme, createTheme } from "@mui/material/styles";
-import { PRIMARY_COLOR, SECONDARY_COLOR } from "../constants/color-palette";
+import {
+  BACKGROUND_COLOR,
+  PRIMARY_COLOR,
+  SECONDARY_COLOR,
+} from "../constants/color-palette";
 
 export const theme: Theme = createTheme({
   palette: {
@@ -8,6 +12,9 @@ export const theme: Theme = createTheme({
     },
     secondary: {
       main: SECONDARY_COLOR,
+    },
+    background: {
+      default: BACKGROUND_COLOR,
     },
   },
 });

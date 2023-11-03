@@ -6,37 +6,43 @@ import {
   SECONDARY_BACKGROUND_COLOR,
 } from "../../constants/color-palette";
 
-interface HoverLinkCardProps {
+interface HoverCardProps {
   title: string;
   description: string | JSX.Element | (string | JSX.Element)[];
   descriptionLineTwo?: string | JSX.Element;
   href?: string;
+  id?: string;
 }
 
-const HoverLinkCard = ({
+const HoverCard = ({
   href,
   title,
   description,
   descriptionLineTwo,
-}: HoverLinkCardProps) => {
+  id,
+}: HoverCardProps) => {
   return (
-    <Link href={href || "#!"} underline="none">
-      <ButtonBase component="div" style={{ display: "flex", height: "100%" }}>
+    <Link href={href || "#!"} id={id} underline="none">
+      <ButtonBase
+        component="div"
+        style={{ display: "flex", height: "100%", width: "100%" }}
+      >
         <Card
           sx={{
             height: "100%",
+            width: "100%",
             backgroundColor: MID_GROUND_COLOR,
             borderRadius: 2,
-            p: 2,
+            p: 3,
             color: PRIMARY_COLOR,
-            boxShadow: "0 3px 5px rgba(0, 0, 0, 0.3)",
+            boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.08)",
             transition: "all 0.3s ease",
             ...(href && {
               "&:hover": {
                 backgroundColor: SECONDARY_BACKGROUND_COLOR,
                 color: PRIMARY_COLOR,
                 transform: "scale(1.05)",
-                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.5)",
+                boxShadow: "0px 7px 20px rgba(0, 0, 0, 0.12)",
               },
             }),
             cursor: href ? "pointer" : "default",
@@ -64,4 +70,4 @@ const HoverLinkCard = ({
   );
 };
 
-export default HoverLinkCard;
+export default HoverCard;

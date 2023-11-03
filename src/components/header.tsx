@@ -23,6 +23,29 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  // const [isScrolled, setIsScrolled] = useState(false);
+
+  // useEffect(() => {
+  //   const sentinel = document.getElementById("sentinel");
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     if (entries[0].isIntersecting) {
+  //       setIsScrolled(false);
+  //     } else {
+  //       setIsScrolled(true);
+  //     }
+  //   });
+
+  //   if (sentinel) {
+  //     observer.observe(sentinel);
+  //   }
+
+  //   return () => {
+  //     if (sentinel) {
+  //       observer.unobserve(sentinel);
+  //     }
+  //   };
+  // }, []);
 
   const DrawerItem = ({
     href,
@@ -48,6 +71,8 @@ const Header = () => {
       sx={{
         position: "absolute",
         top: 0,
+        // height: isScrolled ? "0px" : "80px",
+        // transition: "height 0.3s",
         background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
         opacity: "70%",
         borderBottom: `2px solid ${PRIMARY_COLOR}`,
@@ -75,9 +100,9 @@ const Header = () => {
               }}
             >
               <List sx={{ padding: 2 }}>
-                <DrawerItem href="/dashboard">Dashboard</DrawerItem>
+                <DrawerItem href="/">Home</DrawerItem>
                 <DrawerItem href="/about">About</DrawerItem>
-                <DrawerItem href="/blog">Blog</DrawerItem>
+                {/* <DrawerItem href="/blog">Blog</DrawerItem> */}
                 <DrawerItem href="/projects">Projects</DrawerItem>
                 <DrawerItem href="/contact">Contact</DrawerItem>
               </List>
@@ -89,7 +114,7 @@ const Header = () => {
               color="inherit"
               sx={{ "&:hover": { color: PRIMARY_COLOR } }}
             >
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/">Home</Link>
             </Button>
             <Button
               color="inherit"
@@ -97,12 +122,12 @@ const Header = () => {
             >
               <Link href="/about">About</Link>
             </Button>
-            <Button
+            {/* <Button
               color="inherit"
               sx={{ "&:hover": { color: PRIMARY_COLOR } }}
             >
               <Link href="/blog">Blog</Link>
-            </Button>
+            </Button> */}
             <Button
               color="inherit"
               sx={{ "&:hover": { color: PRIMARY_COLOR } }}

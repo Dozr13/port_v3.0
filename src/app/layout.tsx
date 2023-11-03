@@ -1,5 +1,7 @@
+import { Box } from "@mui/material";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "../components/header";
 import ThemeRegistry from "../utils/ThemeRegistry";
 import "./globals.css";
 
@@ -18,7 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeRegistry options={{ key: "mui-theme" }}>{children}</ThemeRegistry>
+        {/* <Box id="sentinel" style={{ height: "1px", width: "100%" }}></Box> */}
+        <ThemeRegistry options={{ key: "mui-theme" }}>
+          <Header />
+          {children}
+        </ThemeRegistry>
       </body>
     </html>
   );

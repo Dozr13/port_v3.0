@@ -1,3 +1,6 @@
+import BillTraxImage from "../../public/assets/images/BillTraxImage";
+import ShiftScribeLogo from "../../public/assets/images/ShiftScribeLogo";
+
 export const projectData = [
   {
     title: "ShiftScribe",
@@ -8,6 +11,14 @@ export const projectData = [
     androidLink:
       "https://play.google.com/store/apps/details?id=com.shiftscribe.app",
     website: "https://www.shiftscribe.com/",
+    logo: ShiftScribeLogo,
+  },
+  {
+    title: "BillTrax",
+    description:
+      "BillTrax, a bootcamp creation, offers users a streamlined way to track bills and set budgeting goals. With the ability to view expenses daily, monthly, or annually, as well as gives the ability to set goals and view everything in a user friendly mann, it provides insights into one's financial habits. Although feature-rich, this project is currently not hosted.",
+    githubLink: "https://github.com/Dozr13/Bill_Track",
+    logo: BillTraxImage,
   },
   // Add more project objects similarly
 ];

@@ -1,5 +1,6 @@
 "use client";
 import { Box, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 import { useEffect } from "react";
 import HoverCard from "../../components/cards/hover-card";
 import Footer from "../../components/footer";
@@ -48,12 +49,36 @@ export default function Page() {
           pb: 6,
         }}
       >
-        <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
-          About Wade
-        </Typography>
-        <Typography variant="h5" sx={{ color: PRIMARY_COLOR }}>
-          Discover My Journey and Skills
-        </Typography>
+        <Grid container spacing={2} alignItems="center">
+          <Grid item md={3} xs={12}>
+            <Box
+              sx={{
+                borderRadius: 50,
+                overflow: "hidden",
+                "@media (max-width:600px)": {
+                  borderRadius: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                },
+              }}
+            >
+              <Image
+                src="/../assets/images/Photo_1682372584117.jpg"
+                width={200}
+                height={200}
+                alt="Picture of the Author"
+              />
+            </Box>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
+              About Wade
+            </Typography>
+            <Typography variant="h5" sx={{ color: PRIMARY_COLOR }}>
+              Discover My Journey and Skills
+            </Typography>
+          </Grid>
+        </Grid>
       </Box>
 
       <Grid container spacing={4}>

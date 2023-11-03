@@ -1,4 +1,11 @@
-import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { createElement } from "react";
 import { FaAndroid, FaApple, FaGithub, FaGlobe } from "react-icons/fa";
 import { MID_GROUND_COLOR, PRIMARY_COLOR } from "../../constants/color-palette";
@@ -36,7 +43,7 @@ const ProjectCard = ({
       >
         <Box
           sx={{
-            mb: 4,
+            mb: 2,
             width: ["10rem", "20rem"],
             height: ["10rem", "20rem"],
             display: "flex",
@@ -48,7 +55,7 @@ const ProjectCard = ({
           <Box
             style={{
               width: "100%",
-              height: "100%",
+              height: "auto",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -85,47 +92,55 @@ const ProjectCard = ({
           }}
         >
           {githubLink && (
-            <IconButton
-              aria-label="GitHub link"
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub sx={{ color: PRIMARY_COLOR }} />
-            </IconButton>
+            <Tooltip title="GitHub">
+              <IconButton
+                aria-label="GitHub link"
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub sx={{ color: PRIMARY_COLOR }} />
+              </IconButton>
+            </Tooltip>
           )}
 
           {website && (
-            <IconButton
-              aria-label="Website link"
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGlobe sx={{ color: PRIMARY_COLOR }} />
-            </IconButton>
+            <Tooltip title="Web">
+              <IconButton
+                aria-label="Website link"
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGlobe sx={{ color: PRIMARY_COLOR }} />
+              </IconButton>
+            </Tooltip>
           )}
 
           {iosLink && (
-            <IconButton
-              aria-label="iOS link"
-              href={iosLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaApple sx={{ color: PRIMARY_COLOR }} />
-            </IconButton>
+            <Tooltip title="iOS">
+              <IconButton
+                aria-label="iOS link"
+                href={iosLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaApple sx={{ color: PRIMARY_COLOR }} />
+              </IconButton>
+            </Tooltip>
           )}
 
           {androidLink && (
-            <IconButton
-              aria-label="Android link"
-              href={androidLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaAndroid sx={{ color: PRIMARY_COLOR }} />
-            </IconButton>
+            <Tooltip title="Android">
+              <IconButton
+                aria-label="Android link"
+                href={androidLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaAndroid sx={{ color: PRIMARY_COLOR }} />
+              </IconButton>
+            </Tooltip>
           )}
         </Box>
       </CardContent>

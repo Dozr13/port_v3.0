@@ -1,4 +1,6 @@
 import BillTraxImage from "../../public/assets/images/BillTraxImage";
+import GitReactCompsImage from "../../public/assets/images/GitReactCompsImage";
+import LoremCakesImage from "../../public/assets/images/LoremCakesImage";
 import ShiftScribeLogo from "../../public/assets/images/ShiftScribeLogo";
 
 export const projectData = [
@@ -20,5 +22,18 @@ export const projectData = [
     githubLink: "https://github.com/Dozr13/Bill_Track",
     logo: BillTraxImage,
   },
-  // Add more project objects similarly
+  {
+    title: "Git React Comps",
+    description:
+      "Git React Comps (GRC) serves as a dedicated hub for React enthusiasts, reminiscent of the GitHub experience. This collaborative team project empowers users to share, update, and leverage community-contributed components. What makes GRC unique is the capability to preview components visually before integration and tailor styling seamlessly upon implementation, ensuring a cohesive blend with any project.",
+    githubLink: "https://github.com/GitReactComponents",
+    logo: GitReactCompsImage,
+  },
+  {
+    title: "Lorem Cakes",
+    description:
+      "Lorem Cakes, a delightful destination for cake aficionados, simplifies the cake-buying experience. Born out of a coding bootcamp project, this platform showcases an array of delectable cakes, allowing users to explore, select, and purchase with ease. Whether it's a special occasion or just a sweet craving, Lorem Cakes offers a piece of joy with every click.",
+    githubLink: "https://github.com/Dozr13/lorem-cakes",
+    logo: LoremCakesImage,
+  },
 ];

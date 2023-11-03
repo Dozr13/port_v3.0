@@ -2,7 +2,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 
 import HoverCard from "../components/cards/hover-card";
-import Chatbot from "../components/chatbot/chat-bot";
 import Footer from "../components/footer";
 import {
   BACKGROUND_COLOR,
@@ -75,16 +74,6 @@ export default function Home() {
           />
         </Grid>
 
-        {/* Blog Posts */}
-        {/* <Grid item md={6} sm={12} xs={12}>
-          <HoverCard
-            href="/blog"
-            title="Blog"
-            description="Insights, tutorials, and my two cents on tech."
-            descriptionLineTwo="Peek into my thoughts, one post at a time."
-          />
-        </Grid> */}
-
         <Grid item md={6} sm={12} xs={12}>
           <HoverCard
             href="/about"
@@ -100,7 +89,6 @@ export default function Home() {
             ]}
           />
         </Grid>
-        {/* // TODO: Add a photo or avatar */}
 
         {/* Contact Me */}
         <Grid item md={6} sm={12} xs={12}>
@@ -111,11 +99,8 @@ export default function Home() {
             descriptionLineTwo="Whether it's a budding idea or a complex challenge, I thrive in transforming concepts into reality. Drop me a line, and let's embark on a new journey together. Your vision, my expertise – together, we can create the extraordinary."
           />
         </Grid>
-
-        <Grid item md={12} sm={12} xs={12} sx={{ pt: 4 }}>
-          <Chatbot />
-        </Grid>
       </Grid>
+
       <Footer />
     </Box>
   );

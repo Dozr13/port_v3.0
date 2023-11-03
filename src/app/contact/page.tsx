@@ -10,8 +10,8 @@ import {
 import { Field, Form, Formik } from "formik";
 import Footer from "../../components/footer";
 import { validationSchema } from "../../components/form/validation";
-import Header from "../../components/header";
 import {
+  BACKGROUND_COLOR,
   PRIMARY_COLOR,
   SECONDARY_BACKGROUND_COLOR,
 } from "../../constants/color-palette";
@@ -21,12 +21,51 @@ export default function Page() {
     <Box
       sx={{
         flexGrow: 1,
-        backgroundColor: SECONDARY_BACKGROUND_COLOR,
-        padding: 5,
+        padding: 4,
+        background: `linear-gradient(to top,  ${BACKGROUND_COLOR}, ${SECONDARY_BACKGROUND_COLOR}, rgba(255,255,255,0.1))`,
+        "@media (max-width:600px)": {
+          backgroundColor: "transparent",
+          flexGrow: 0,
+        },
       }}
     >
-      <Header />
-
+      <Box
+        sx={{
+          flexGrow: 1,
+          height: "100%",
+          background: SECONDARY_BACKGROUND_COLOR,
+          textAlign: "center",
+          mb: 4,
+          p: 4,
+          pb: 8,
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontWeight: "bold",
+            color: PRIMARY_COLOR,
+            mb: 2,
+            "@media (max-width:600px)": {
+              fontSize: "2.5rem",
+            },
+          }}
+        >
+          It&apos;s been great having you here.
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{
+            color: PRIMARY_COLOR,
+            "@media (max-width:600px)": {
+              fontSize: "1.2rem",
+            },
+          }}
+        >
+          If you have any questions, thoughts, or just want to say hi, drop me a
+          line below. Look forward to connecting!
+        </Typography>
+      </Box>
       <Card
         sx={{
           mt: 5,
@@ -34,6 +73,9 @@ export default function Page() {
           width: "60%",
           backgroundColor: PRIMARY_COLOR,
           borderRadius: 10,
+          "@media (max-width:600px)": {
+            width: "100%",
+          },
         }}
       >
         <CardContent>
@@ -49,7 +91,19 @@ export default function Page() {
             }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-              console.log("Form data", values);
+              fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+              }).then((response) => {
+                if (response.ok) {
+                  alert("Email sent successfully");
+                } else {
+                  alert("Error sending email");
+                }
+              });
             }}
           >
             {(formik) => (

@@ -1,18 +1,48 @@
 import { Link } from "@mui/material";
 import { Entities, Intent } from "../types/chat-bot.types";
 
-const getGreeting = () => {
+const getGreeting = (userMessage: string) => {
   const currentHour = new Date().getHours();
-  if (currentHour >= 5 && currentHour < 12) {
-    return <>Good morning!</>;
+
+  // Check for greetings like "how are you?"
+  const howAreYouPhrases = [
+    "how are you",
+    "how's it going",
+    "how have you been",
+    "how do you do",
+  ];
+  if (
+    howAreYouPhrases.some((phrase) =>
+      userMessage.toLowerCase().includes(phrase),
+    )
+  ) {
+    return (
+      <>
+        I&apos;m just a program, so I don&apos;t have feelings, but I&apos;m
+        operating at full capacity! How can I assist you?
+      </>
+    );
   }
-  if (currentHour >= 12 && currentHour < 18) {
-    return <>Good afternoon!</>;
+
+  // Check for simple greetings like "hi" or "hello"
+  const greetings = ["hi", "hello", "howdy", "whats up"];
+  if (
+    greetings.some((greeting) => userMessage.toLowerCase().includes(greeting))
+  ) {
+    if (currentHour >= 5 && currentHour < 12) {
+      return <>Good morning!</>;
+    }
+    if (currentHour >= 12 && currentHour < 18) {
+      return <>Good afternoon!</>;
+    }
+    if (currentHour >= 18 && currentHour < 22) {
+      return <>Good evening!</>;
+    }
+    return <>Good night!</>;
   }
-  if (currentHour >= 18 && currentHour < 22) {
-    return <>Good evening!</>;
-  }
-  return <>Good night!</>;
+
+  // Default response if no recognized greeting or question
+  return <>Hello!</>;
 };
 
 const getExperience = () => [
@@ -103,16 +133,33 @@ const getJoke = () => {
   return jokes[Math.floor(Math.random() * jokes.length)];
 };
 
+const getContact = () => {
+  return (
+    <>
+      Feel free to email me at: wadejp8@gmail.com,
+      <br />
+      Call or text me anytime at: 720-641-7170,
+      <br />
+      Or let me contact you!
+      <br />{" "}
+      <Link href="/contact" key={"about-link"} style={{ color: "#0d6efd" }}>
+        Contact Form
+      </Link>
+    </>
+  );
+};
+
 export const handleIntent = (
   intent: Intent,
   entities: Entities,
   unknownCount: number,
   setUnknownCount: React.Dispatch<React.SetStateAction<number>>,
+  userMessage: string,
 ): JSX.Element | JSX.Element[] => {
   console.log("intent: ", intent);
   switch (intent) {
     case "get_greeting":
-      return getGreeting();
+      return getGreeting(userMessage);
 
     case "ask_experience":
       return getExperience();
@@ -125,6 +172,9 @@ export const handleIntent = (
 
     case "get_joke":
       return getJoke();
+
+    case "get_contact":
+      return getContact();
 
     case "unknown_intent":
       setUnknownCount((prevCount) => prevCount + 1);

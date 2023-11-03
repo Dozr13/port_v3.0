@@ -1,15 +1,25 @@
 // src/components/Chatbot.tsx
 
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { MID_GROUND_COLOR } from "../../constants/color-palette";
 import { handleIntent } from "../../helpers/chat-bot.helper";
 import { Message } from "../../types/chat-bot.types";
 
-const Chatbot = () => {
+interface ChatbotProps {
+  sx?: React.CSSProperties;
+}
+
+const Chatbot = ({ sx }: ChatbotProps) => {
   const [input, setInput] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [unknownCount, setUnknownCount] = useState<number>(0);
+
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const getWitAiResponse = async (text: string) => {
     const response = await fetch(
@@ -46,19 +56,25 @@ const Chatbot = () => {
       entities,
       unknownCount,
       setUnknownCount,
+      input.trim(),
     );
     setMessages((prev) => [...prev, { sender: "bot", content: botReply }]);
 
+    scrollToBottom();
     setInput("");
   };
 
   return (
     <Box
       sx={{
-        maxWidth: "100%",
+        display: "flex",
+        flexDirection: "column",
+        height: 400,
+        width: ["100%", "70%", "50%", "35%"],
         background: MID_GROUND_COLOR,
         margin: "0 auto",
         mt: 4,
+        ...sx,
       }}
     >
       <Typography variant="h6" gutterBottom align="center">
@@ -66,8 +82,9 @@ const Chatbot = () => {
       </Typography>
       <Paper
         sx={{
+          flexGrow: 1,
           overflowY: "auto",
-          maxHeight: "300px",
+          height: 300,
           border: "1px solid #ccc",
           padding: "10px",
           borderRadius: "5px",
@@ -108,14 +125,23 @@ const Chatbot = () => {
         ))}
       </Paper>
       <Box mt={2}>
+        {/* Hidden input field to trick the browser's autofill */}
+        <input type="text" style={{ display: "none" }} />
+
         <TextField
           variant="outlined"
           fullWidth
           value={input}
+          type="text"
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           placeholder="Type a message..."
+          autoComplete="new-password"
+          inputProps={{
+            autoComplete: "new-password",
+          }}
         />
+
         <Button
           onClick={handleSubmit}
           variant="contained"

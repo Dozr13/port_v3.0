@@ -1,50 +1,6 @@
 import { Link } from "@mui/material";
 import { Entities, Intent } from "../types/chat-bot.types";
 
-// const getGreeting = (userMessage: string) => {
-//   const currentHour = new Date().getHours();
-
-//   // Check for greetings like "how are you?"
-//   const howAreYouPhrases = [
-//     "how are you",
-//     "how's it going",
-//     "how have you been",
-//     "how do you do",
-//   ];
-//   if (
-//     howAreYouPhrases.some((phrase) =>
-//       userMessage.toLowerCase().includes(phrase),
-//     )
-//   ) {
-//     return (
-//       <>
-//         I&apos;m just a program, so I don&apos;t have feelings, but I&apos;m
-//         operating at full capacity! How can I assist you?
-//       </>
-//     );
-//   }
-
-//   // Check for simple greetings like "hi" or "hello"
-//   const greetings = ["hi", "hello", "howdy", "whats up"];
-//   if (
-//     greetings.some((greeting) => userMessage.toLowerCase().includes(greeting))
-//   ) {
-//     if (currentHour >= 5 && currentHour < 12) {
-//       return <>Good morning!</>;
-//     }
-//     if (currentHour >= 12 && currentHour < 18) {
-//       return <>Good afternoon!</>;
-//     }
-//     if (currentHour >= 18 && currentHour < 22) {
-//       return <>Good evening!</>;
-//     }
-//     return <>Good night!</>;
-//   }
-
-//   // Default response if no recognized greeting or question
-//   return <>Hello!</>;
-// };
-
 const getGreeting = () => {
   const currentHour = new Date().getHours();
   if (currentHour >= 5 && currentHour < 12) {

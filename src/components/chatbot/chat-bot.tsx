@@ -1,5 +1,3 @@
-// src/components/Chatbot.tsx
-
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useRef, useState } from "react";
 import { MID_GROUND_COLOR } from "../../constants/color-palette";
@@ -56,7 +54,6 @@ const Chatbot = ({ sx }: ChatbotProps) => {
       entities,
       unknownCount,
       setUnknownCount,
-      // input.trim(),
     );
     setMessages((prev) => [...prev, { sender: "bot", content: botReply }]);
 

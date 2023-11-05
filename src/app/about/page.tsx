@@ -1,86 +1,13 @@
-"use client";
-import { Box, Grid, Typography } from "@mui/material";
-import Image from "next/image";
-import { useEffect } from "react";
+import { Grid } from "@mui/material";
 import HoverCard from "../../components/cards/hover-card";
-import Footer from "../../components/footer";
-import Header from "../../components/header";
-import {
-  BACKGROUND_COLOR,
-  PRIMARY_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
-} from "../../constants/color-palette";
+import PageContainer from "../../components/page-container";
 
 export default function Page() {
-  useEffect(() => {
-    const hash = window.location.hash;
-
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
-
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, []);
-
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        padding: 4,
-        background: `linear-gradient(to top,  ${BACKGROUND_COLOR}, ${SECONDARY_BACKGROUND_COLOR}, rgba(255,255,255,0.1))`,
-        "@media (max-width:600px)": {
-          backgroundColor: "transparent",
-          flexGrow: 0,
-        },
-      }}
+    <PageContainer
+      mainMessage="About Wade"
+      secondaryMessage="Discover my Journey and Skills"
     >
-      <Header />
-
-      <Box
-        sx={{
-          flexGrow: 1,
-          height: "100%",
-          background: SECONDARY_BACKGROUND_COLOR,
-          textAlign: "center",
-          mb: 4,
-          p: 4,
-          pb: 6,
-        }}
-      >
-        <Grid container spacing={2} alignItems="center">
-          <Grid item md={3} xs={12}>
-            <Box
-              sx={{
-                borderRadius: 50,
-                overflow: "hidden",
-                "@media (max-width:600px)": {
-                  borderRadius: 0,
-                  display: "flex",
-                  justifyContent: "center",
-                },
-              }}
-            >
-              <Image
-                src="/../assets/images/Photo_1682372584117.jpg"
-                width={200}
-                height={200}
-                alt="Picture of the Author"
-              />
-            </Box>
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
-              About Wade
-            </Typography>
-            <Typography variant="h5" sx={{ color: PRIMARY_COLOR }}>
-              Discover My Journey and Skills
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box>
-
       <Grid container spacing={4}>
         <Grid container item spacing={4} alignItems="stretch">
           <Grid item md={6} sm={12} xs={12} style={{ flexGrow: 1 }}>
@@ -191,8 +118,6 @@ export default function Page() {
           />
         </Grid>
       </Grid>
-
-      <Footer />
-    </Box>
+    </PageContainer>
   );
 }

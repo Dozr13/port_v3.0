@@ -5,7 +5,7 @@ import {
   Button,
   Drawer,
   List,
-  ListItem,
+  ListItemButton,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -19,33 +19,25 @@ import {
   SECONDARY_BACKGROUND_COLOR,
 } from "../constants/color-palette";
 
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+];
+
+const appBarStyle = {
+  position: "absolute",
+  top: 0,
+  background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
+  opacity: "70%",
+  borderBottom: `2px solid ${PRIMARY_COLOR}`,
+};
+
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  // const [isScrolled, setIsScrolled] = useState(false);
-
-  // useEffect(() => {
-  //   const sentinel = document.getElementById("sentinel");
-
-  //   const observer = new IntersectionObserver((entries) => {
-  //     if (entries[0].isIntersecting) {
-  //       setIsScrolled(false);
-  //     } else {
-  //       setIsScrolled(true);
-  //     }
-  //   });
-
-  //   if (sentinel) {
-  //     observer.observe(sentinel);
-  //   }
-
-  //   return () => {
-  //     if (sentinel) {
-  //       observer.unobserve(sentinel);
-  //     }
-  //   };
-  // }, []);
 
   const DrawerItem = ({
     href,
@@ -54,8 +46,7 @@ const Header = () => {
     href: string;
     children: string;
   }) => (
-    <ListItem
-      button={true}
+    <ListItemButton
       onClick={() => setIsDrawerOpen(false)}
       sx={{
         margin: "0.8rem 0",
@@ -63,21 +54,11 @@ const Header = () => {
       }}
     >
       <Link href={href}>{children}</Link>
-    </ListItem>
+    </ListItemButton>
   );
 
   return (
-    <AppBar
-      sx={{
-        position: "absolute",
-        top: 0,
-        // height: isScrolled ? "0px" : "80px",
-        // transition: "height 0.3s",
-        background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
-        opacity: "70%",
-        borderBottom: `2px solid ${PRIMARY_COLOR}`,
-      }}
-    >
+    <AppBar sx={appBarStyle}>
       <Toolbar>
         <Typography variant="h6" component="div">
           <Link href="/">Wade Pate&apos;s Portfolio</Link>
@@ -100,47 +81,24 @@ const Header = () => {
               }}
             >
               <List sx={{ padding: 2 }}>
-                <DrawerItem href="/">Home</DrawerItem>
-                <DrawerItem href="/about">About</DrawerItem>
-                {/* <DrawerItem href="/blog">Blog</DrawerItem> */}
-                <DrawerItem href="/projects">Projects</DrawerItem>
-                <DrawerItem href="/contact">Contact</DrawerItem>
+                {navItems.map((item) => (
+                  <DrawerItem key={item.href} href={item.href}>
+                    {item.label}
+                  </DrawerItem>
+                ))}
               </List>
             </Drawer>
           </>
         ) : (
-          <>
+          navItems.map((item) => (
             <Button
+              key={item.href}
               color="inherit"
               sx={{ "&:hover": { color: PRIMARY_COLOR } }}
             >
-              <Link href="/">Home</Link>
+              <Link href={item.href}>{item.label}</Link>
             </Button>
-            <Button
-              color="inherit"
-              sx={{ "&:hover": { color: PRIMARY_COLOR } }}
-            >
-              <Link href="/about">About</Link>
-            </Button>
-            {/* <Button
-              color="inherit"
-              sx={{ "&:hover": { color: PRIMARY_COLOR } }}
-            >
-              <Link href="/blog">Blog</Link>
-            </Button> */}
-            <Button
-              color="inherit"
-              sx={{ "&:hover": { color: PRIMARY_COLOR } }}
-            >
-              <Link href="/projects">Projects</Link>
-            </Button>
-            <Button
-              color="inherit"
-              sx={{ "&:hover": { color: PRIMARY_COLOR } }}
-            >
-              <Link href="/contact">Contact</Link>
-            </Button>
-          </>
+          ))
         )}
       </Toolbar>
     </AppBar>

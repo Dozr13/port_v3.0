@@ -6,9 +6,9 @@ import { BACKGROUND_COLOR, SECONDARY_COLOR } from "../constants/color-palette";
 
 interface IconButtonProps {
   labelText: string;
-  icon?: React.ElementType;
   url: string;
   additionalStyles?: CSSProperties;
+  icon?: React.ElementType;
 }
 
 const IconButton = ({
@@ -18,7 +18,7 @@ const IconButton = ({
   additionalStyles,
 }: IconButtonProps) => {
   return (
-    <Button className="button-primary" style={additionalStyles}>
+    <Button sx={additionalStyles}>
       <Typography
         variant="h6"
         component="p"

@@ -17,4 +17,13 @@ export const theme: Theme = createTheme({
       default: BACKGROUND_COLOR,
     },
   },
+  transitions: {
+    easing: {
+      easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
+    },
+    duration: {
+      enteringScreen: 500,
+      leavingScreen: 500,
+    },
+  },
 });

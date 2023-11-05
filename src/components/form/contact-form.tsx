@@ -1,73 +1,70 @@
-import { Box, Button, TextField } from "@mui/material";
-import { Form, useFormik } from "formik";
-import { validationSchema } from "./validation";
+"use client";
+import emailjs from "emailjs-com";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import {
+  EMAIL_JS_CONFIG,
+  INITIAL_FORM_VALUES,
+} from "../../constants/emailjs-config";
+import { InitialContactForm } from "../../types/initial-types";
+import ContactCard from "../cards/contact-card";
+import SuccessCard from "../cards/success-card";
+
+const MySwal = withReactContent(Swal);
 
 const ContactForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      // Handle the form submission, e.g., send the data to an API or service
-      console.log("Form data", values);
-    },
-  });
+  const [submitted, setSubmitted] = useState(false);
+  const [showEmail, setShowEmail] = useState(true);
 
-  return (
-    <Form onSubmit={formik.handleSubmit}>
-      <Box mt={3}>
-        <TextField
-          fullWidth
-          id="name"
-          name="name"
-          label="Name"
-          variant="outlined"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
-        />
-      </Box>
+  const handleSubmit = async (
+    values: InitialContactForm,
+    { setSubmitting }: any,
+  ) => {
+    console.log("### Enter handleSubmit");
+    try {
+      const valuesRecord: Record<string, unknown> = { ...values };
 
-      <Box mt={3}>
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          variant="outlined"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-      </Box>
+      const result = await emailjs.send(
+        EMAIL_JS_CONFIG.SERVICE_ID,
+        EMAIL_JS_CONFIG.TEMPLATE_ID,
+        valuesRecord,
+        EMAIL_JS_CONFIG.PUBLIC_KEY,
+      );
 
-      <Box mt={3}>
-        <TextField
-          fullWidth
-          multiline
-          rows={4}
-          id="message"
-          name="message"
-          label="Message"
-          variant="outlined"
-          value={formik.values.message}
-          onChange={formik.handleChange}
-          error={formik.touched.message && Boolean(formik.errors.message)}
-          helperText={formik.touched.message && formik.errors.message}
-        />
-      </Box>
+      console.log("### EmailJS Result:", result);
 
-      <Box sx={{ mt: 3, alignContent: "center" }}>
-        <Button color="secondary" variant="contained" type="submit">
-          Submit
-        </Button>
-      </Box>
-    </Form>
+      if (result.status === 200 && result.text === "OK") {
+        setSubmitted(true);
+        MySwal.fire({
+          icon: "success",
+          title: `Message Sent, I'll get back to you shortly`,
+        });
+      } else {
+        MySwal.fire({
+          icon: "error",
+          title: `Failed to send message. Status: ${result.status}, Text: ${result.text}`,
+        });
+      }
+    } catch (error) {
+      console.error("### Error Sending Email:", error);
+      MySwal.fire({
+        icon: "error",
+        title: "Oops, something went wrong, please try again",
+      });
+    }
+    setSubmitting(false);
+  };
+
+  return submitted ? (
+    <SuccessCard />
+  ) : (
+    <ContactCard
+      initialValues={INITIAL_FORM_VALUES}
+      onSubmit={handleSubmit}
+      showEmail={showEmail}
+      setShowEmail={setShowEmail}
+    />
   );
 };
 

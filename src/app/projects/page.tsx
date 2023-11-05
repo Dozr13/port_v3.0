@@ -1,54 +1,28 @@
-"use client";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import ProjectCard from "../../components/cards/project-card";
-import Footer from "../../components/footer";
-import {
-  BACKGROUND_COLOR,
-  PRIMARY_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
-} from "../../constants/color-palette";
+import PageContainer from "../../components/page-container";
+import { PRIMARY_COLOR } from "../../constants/color-palette";
 import { projectData } from "../../data/projects";
 
 export default function Projects() {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        padding: 4,
-        background: `linear-gradient(to top,  ${BACKGROUND_COLOR}, ${SECONDARY_BACKGROUND_COLOR}, rgba(255,255,255,0.1))`,
-        "@media (max-width:600px)": {
-          backgroundColor: "transparent",
-          flexGrow: 0,
-        },
-      }}
+    <PageContainer
+      mainMessage="My Projects"
+      secondaryMessage="Take a look at some of my work"
     >
-      <Box
+      <Typography
+        variant="h5"
         sx={{
-          flexGrow: 1,
-          height: "100%",
-          background: SECONDARY_BACKGROUND_COLOR,
+          color: PRIMARY_COLOR,
+          m: 8,
           textAlign: "center",
-          mb: 4,
-          p: 4,
-          pb: 6,
         }}
       >
-        <Typography variant="h3" sx={{ color: PRIMARY_COLOR }}>
-          My Projects
-        </Typography>
-        <Typography variant="h5" sx={{ color: PRIMARY_COLOR }}>
-          Take a look at some pieces of my work
-        </Typography>
-      </Box>
-
-      <Typography
-        variant="subtitle1"
-        sx={{ color: PRIMARY_COLOR, m: 4, textAlign: "center" }}
-      >
         Many of my most impactful contributions to projects with companies like
-        HP, PlexTrac, and SymLiv are bound by NDAs. Hence, while you might find
-        limited projects listed here, I bring to the table a wealth of
-        experience from diverse, large-scale projects.
+        HP, PlexTrac, and SymLiv are bound by NDAs.
+        <br />
+        Hence, while you might find limited projects listed here, I bring to the
+        table a wealth of experience from diverse, large-scale projects.
       </Typography>
       <Grid container spacing={4}>
         {projectData.map((project, index) => (
@@ -65,8 +39,6 @@ export default function Projects() {
           </Grid>
         ))}
       </Grid>
-
-      <Footer />
-    </Box>
+    </PageContainer>
   );
 }

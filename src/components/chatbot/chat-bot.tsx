@@ -56,7 +56,7 @@ const Chatbot = ({ sx }: ChatbotProps) => {
       entities,
       unknownCount,
       setUnknownCount,
-      input.trim(),
+      // input.trim(),
     );
     setMessages((prev) => [...prev, { sender: "bot", content: botReply }]);
 

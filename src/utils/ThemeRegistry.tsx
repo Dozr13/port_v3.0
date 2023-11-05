@@ -7,13 +7,20 @@ import { useServerInsertedHTML } from "next/navigation";
 import { useState } from "react";
 import { theme } from "./theme";
 
+interface CacheOptions {
+  key: string;
+  prepend?: boolean;
+  // ... any other possible properties that might be passed in the future.
+}
+
 interface ThemeRegistryProps {
-  options: any;
+  options: CacheOptions;
   children: React.ReactNode;
 }
 
 export default function ThemeRegistry(props: ThemeRegistryProps) {
   const { options, children } = props;
+
   const [{ cache, flush }] = useState(() => {
     const cache = createCache(options);
     cache.compat = true;
@@ -33,6 +40,7 @@ export default function ThemeRegistry(props: ThemeRegistryProps) {
     };
     return { cache, flush };
   });
+
   useServerInsertedHTML(() => {
     const names = flush();
     if (names.length === 0) {
@@ -47,11 +55,12 @@ export default function ThemeRegistry(props: ThemeRegistryProps) {
         key={cache.key}
         data-emotion={`${cache.key} ${names.join(" ")}`}
         dangerouslySetInnerHTML={{
-          __html: styles,
+          __html: options.prepend ? `@layer emotion {${styles}}` : styles,
         }}
       />
     );
   });
+
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>

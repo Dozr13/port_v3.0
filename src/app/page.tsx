@@ -1,69 +1,15 @@
-"use client";
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import HoverCard from "../components/cards/hover-card";
-import Footer from "../components/footer";
-import {
-  BACKGROUND_COLOR,
-  PRIMARY_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
-} from "../constants/color-palette";
+import PageContainer from "../components/page-container";
 
 export default function Home() {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        padding: 4,
-        background: `linear-gradient(to top,  ${BACKGROUND_COLOR}, ${SECONDARY_BACKGROUND_COLOR}, rgba(255,255,255,0.1))`,
-        "@media (max-width:600px)": {
-          backgroundColor: "transparent",
-          flexGrow: 0,
-        },
-      }}
+    <PageContainer
+      mainMessage="Hi, I'm Wade!"
+      secondaryMessage="Welcome to my Portfolio"
     >
-      {/* Introduction */}
-      <Box
-        sx={{
-          flexGrow: 1,
-          height: "100%",
-          background: SECONDARY_BACKGROUND_COLOR,
-          textAlign: "center",
-          mb: 4,
-          p: 4,
-          pb: 8,
-        }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            fontWeight: "bold",
-            color: PRIMARY_COLOR,
-            mb: 2,
-            "@media (max-width:600px)": {
-              fontSize: "2.5rem",
-            },
-          }}
-        >
-          Hi, I&apos;m Wade!
-        </Typography>
-        <Typography
-          variant="h5"
-          sx={{
-            color: PRIMARY_COLOR,
-            "@media (max-width:600px)": {
-              fontSize: "1.2rem",
-            },
-          }}
-        >
-          Welcome to my Portfolio
-        </Typography>
-      </Box>
-
-      {/* Grid Intro Parts */}
       <Grid container spacing={4}>
-        {/* About Me */}
-
         {/* Projects */}
         <Grid item md={12} sm={12} xs={12}>
           <HoverCard
@@ -74,6 +20,7 @@ export default function Home() {
           />
         </Grid>
 
+        {/* About Me */}
         <Grid item md={6} sm={12} xs={12}>
           <HoverCard
             href="/about"
@@ -81,7 +28,7 @@ export default function Home() {
             description={[
               "Hi there! I'm Wade,",
               <br key="line-break-1" />,
-              "a passionate full-stack developer skilled in React TypeScript, GraphQL, and much more.",
+              "I'm a passionate full-stack developer skilled in React Next with TypeScript, Nest.js, PostgreSQL, and much more.",
               <br key="line-break-2" />,
               "I have a strong affinity for Material UI when it comes to styling.",
               <br key="line-break-3" />,
@@ -100,8 +47,6 @@ export default function Home() {
           />
         </Grid>
       </Grid>
-
-      <Footer />
-    </Box>
+    </PageContainer>
   );
 }

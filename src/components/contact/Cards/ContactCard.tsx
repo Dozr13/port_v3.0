@@ -4,7 +4,6 @@ import {
   MID_GROUND_COLOR,
   PRIMARY_COLOR,
 } from "../../../../constants/color-palette";
-import { INITIAL_FORM_VALUES } from "../../../../constants/emailjs-config";
 import { ContactCardProps } from "../../../types/InitialTypes";
 import SubmitContactButton from "../Button/SubmitContactButton";
 import { createValidationSchema } from "../ContactForm/validation";
@@ -40,62 +39,59 @@ const ContactCard = ({
         </Typography>
       </CardContent>
       <Formik
-        initialValues={INITIAL_FORM_VALUES}
+        initialValues={initialValues}
         validationSchema={createValidationSchema(showEmail)}
         onSubmit={onSubmit}
       >
-        {(formik) => {
-          console.log(formik.errors); // <-- Log this
-          return (
-            <Form>
-              <Grid container spacing={3} direction="column">
-                <Grid item>
-                  <NameField />
-                </Grid>
-
-                <Grid item>
-                  <ToggleEmailSwitch
-                    showEmail={showEmail}
-                    onToggle={() => {
-                      setShowEmail(!showEmail);
-                      formik.validateForm();
-                    }}
-                  />
-                </Grid>
-
-                <Grid
-                  item
-                  container
-                  xs={5}
-                  style={{
-                    position: "relative",
-                    minHeight: "110px",
-                    width: "100%",
-                  }}
-                >
-                  <EmailField showEmail={showEmail} />
-                  <PhoneNumberField showEmail={showEmail} />
-                </Grid>
-
-                <Grid item>
-                  <MessageField />
-                </Grid>
-
-                <Grid item>
-                  {formik.submitCount > 0 && !formik.isValid && (
-                    <Typography align="center" sx={{ color: MID_GROUND_COLOR }}>
-                      Some fields are missing or invalid.
-                    </Typography>
-                  )}
-                </Grid>
-
-                <Grid item>
-                  <SubmitContactButton formik={formik} />
-                </Grid>
+        {(formik) => (
+          <Form>
+            <Grid container spacing={3} direction="column">
+              <Grid item>
+                <NameField />
               </Grid>
-            </Form>
-          );
-        }}
+
+              <Grid item>
+                <ToggleEmailSwitch
+                  showEmail={showEmail}
+                  onToggle={() => {
+                    setShowEmail(!showEmail);
+                    formik.validateForm();
+                  }}
+                />
+              </Grid>
+
+              <Grid
+                item
+                container
+                xs={5}
+                style={{
+                  position: "relative",
+                  minHeight: "110px",
+                  width: "100%",
+                }}
+              >
+                <EmailField showEmail={showEmail} />
+                <PhoneNumberField showEmail={showEmail} />
+              </Grid>
+
+              <Grid item>
+                <MessageField />
+              </Grid>
+
+              <Grid item>
+                {formik.submitCount > 0 && !formik.isValid && (
+                  <Typography align="center" sx={{ color: MID_GROUND_COLOR }}>
+                    Some fields are missing or invalid.
+                  </Typography>
+                )}
+              </Grid>
+
+              <Grid item>
+                <SubmitContactButton formik={formik} />
+              </Grid>
+            </Grid>
+          </Form>
+        )}
       </Formik>
     </Card>
   );

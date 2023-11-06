@@ -1,0 +1,12 @@
+export { default as askLove } from "./askLove";
+export { default as getAboutMe } from "./getAboutMe";
+export { default as getAchievement } from "./getAchievement";
+export { default as getContact } from "./getContact";
+export { default as getExperience } from "./getExperience";
+export { default as getGreeting } from "./getGreeting";
+export { default as getHelpMessage } from "./getHelpMessage";
+export { default as getHireMe } from "./getHireMe";
+export { default as getJoke } from "./getJoke";
+export { default as getSkills } from "./getSkills";
+export { default as getThanks } from "./getThanks";
+export { default as getWellbeing } from "./getWellbeing";

@@ -32,3 +32,8 @@ export const typographyStyles = {
     m: 2,
   },
 };
+
+export const chatLinkStyle = {
+  color: "#0d6efd",
+  textDecoration: "none",
+};

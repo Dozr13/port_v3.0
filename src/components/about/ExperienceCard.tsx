@@ -3,7 +3,7 @@ import HoverCard from "../HoverCard";
 const ExperienceCard = () => {
   return (
     <HoverCard
-      id="skills-and-experience"
+      id="experience"
       title="Experience"
       description={
         <>

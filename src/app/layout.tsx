@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ChatBotToggle from "../components/chatbot/ChatBotToggle";
+import ChatBotToggle from "../components/chatbot/buttons/ChatBotToggle";
 import Header from "../components/header";
 import ThemeRegistry from "../utils/ThemeRegistry";
 import "./global.css";

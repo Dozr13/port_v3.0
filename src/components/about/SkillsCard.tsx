@@ -3,6 +3,7 @@ import HoverCard from "../HoverCard";
 const SkillsCard = () => {
   return (
     <HoverCard
+      id="skills"
       title="Skills"
       description={
         <>

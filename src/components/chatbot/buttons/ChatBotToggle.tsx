@@ -2,7 +2,8 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import { FaCommentDots, FaRegWindowClose } from "react-icons/fa";
-import Chatbot from "./ChatBot";
+import { MID_GROUND_COLOR } from "../../../../constants/color-palette";
+import Chatbot from "../ChatBot";
 
 const ChatBotToggle = () => {
   const [isChatVisible, setIsChatVisible] = useState<boolean>(false);
@@ -19,8 +20,8 @@ const ChatBotToggle = () => {
         color="primary"
         sx={{
           position: "fixed",
-          bottom: 16,
-          right: 16,
+          bottom: 20,
+          right: 20,
           display: "flex",
           alignItems: "center",
           zIndex: 1500,
@@ -28,9 +29,9 @@ const ChatBotToggle = () => {
       >
         {isChatVisible ? <FaRegWindowClose /> : <FaCommentDots />}
         {isChatVisible ? (
-          <Typography sx={{ ml: 2 }}>Close Chat</Typography>
+          <Typography sx={{ color: "#000", ml: 2 }}>Close Chat</Typography>
         ) : (
-          <Typography sx={{ ml: 2 }}>Chat with WadeBot</Typography>
+          <Typography sx={{ color: "#000", ml: 2 }}>Let&apos;s Chat</Typography>
         )}
       </Button>
 
@@ -45,7 +46,7 @@ const ChatBotToggle = () => {
               zIndex: 1300,
               boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.15)",
               borderRadius: "8px",
-              backgroundColor: "white",
+              background: MID_GROUND_COLOR,
             }}
           />
         </Grid>

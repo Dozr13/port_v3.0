@@ -7,7 +7,7 @@ import {
   EMAIL_JS_CONFIG,
   INITIAL_FORM_VALUES,
 } from "../../../../constants/emailjs-config";
-import { InitialContactForm } from "../../../types/initial-types";
+import { InitialContactForm } from "../../../types/InitialTypes";
 import ContactCard from "../Cards/ContactCard";
 import SuccessCard from "../Cards/SuccessCard";
 

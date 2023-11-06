@@ -10,7 +10,6 @@ import { theme } from "./theme";
 interface CacheOptions {
   key: string;
   prepend?: boolean;
-  // ... any other possible properties that might be passed in the future.
 }
 
 interface ThemeRegistryProps {

@@ -1,6 +1,6 @@
 import { Box, Slide } from "@mui/material";
 import { ErrorMessage, Field } from "formik";
-import { EmailFieldProps } from "../../../types/initial-types";
+import { EmailFieldProps } from "../../../types/InitialTypes";
 import { theme } from "../../../utils/theme";
 import ErrorContainer from "../ErrorContainer/ErrorContainer";
 import StyledTextField from "./CustomTextField";

@@ -1,0 +1,32 @@
+import HoverCard from "../HoverCard";
+
+const SkillsCard = () => {
+  return (
+    <HoverCard
+      title="Skills"
+      description={
+        <>
+          <strong>Languages & Frameworks:</strong>
+          <br />- React & Next.js for advanced UI/UX, TypeScript for
+          type-checking.
+          <br />- GraphQL with Apollo Client for API management.
+          <br />- Vue.js, Nuxt for component architecture & Vuex.
+          <br />
+          <br />
+          <strong>Libraries & Tools:</strong>
+          <br />- Material UI for UI components, Tailwind CSS & SASS for styles.
+          <br />- Firebase: Auth, Firestore, and cloud functions.
+          <br />
+          <br />
+          <strong>Dev Practices:</strong>
+          <br />- Responsive Design, SEO Optimization with meta tags and SSR.
+          <br />- Performance Tuning: Lazy loading, code splitting, asset
+          optimization.
+          <br />
+        </>
+      }
+    />
+  );
+};
+
+export default SkillsCard;

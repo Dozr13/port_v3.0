@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
-import { PRIMARY_COLOR } from "../../../constants/color-palette";
-import PageContainer from "../../components/PageContainer";
+import { typographyStyles } from "../../../constants/styles";
+import { PageContainer } from "../../components/containers";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import { projectData } from "../../data/projects";
 
@@ -10,17 +10,7 @@ export default function Projects() {
       mainMessage="My Projects"
       secondaryMessage="Take a look at some of my work"
     >
-      <Typography
-        variant="h5"
-        sx={{
-          color: PRIMARY_COLOR,
-          m: 8,
-          textAlign: "center",
-          "@media (max-width:600px)": {
-            m: 2,
-          },
-        }}
-      >
+      <Typography variant="h5" sx={typographyStyles}>
         Many of my most impactful contributions to projects with companies like
         HP, PlexTrac, and SymLiv are bound by NDAs.
         <br />
@@ -29,7 +19,7 @@ export default function Projects() {
       </Typography>
       <Grid container spacing={4}>
         {projectData.map((project, index) => (
-          <Grid item md={6} xs={12} key={index}>
+          <Grid item md={6} xs={12} key={`project-${index}`}>
             <ProjectCard
               title={project.title}
               description={project.description}

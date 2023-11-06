@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { useMemo } from "react";
-import { cardStyle } from "../../../../constants/style";
+import { cardStyle } from "../../../../constants/styles";
 import LinkIcons from "../../icons/LinkIcons";
 import { getLinkIcons } from "../utils/getLinkIcons";
 import { getImageStyles } from "../utils/imageStyle.utils";

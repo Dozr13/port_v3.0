@@ -5,7 +5,7 @@ import {
   PRIMARY_COLOR,
 } from "../../../../constants/color-palette";
 import { INITIAL_FORM_VALUES } from "../../../../constants/emailjs-config";
-import { ContactCardProps } from "../../../types/initial-types";
+import { ContactCardProps } from "../../../types/InitialTypes";
 import SubmitContactButton from "../Button/SubmitContactButton";
 import { createValidationSchema } from "../ContactForm/validation";
 import EmailField from "../Fields/EmailField";

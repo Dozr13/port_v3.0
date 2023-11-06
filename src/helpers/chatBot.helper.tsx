@@ -1,5 +1,5 @@
 import { Link } from "@mui/material";
-import { Entities, Intent } from "../types/chat-bot.types";
+import { Entities, Intent } from "../types/ChatBot";
 
 const getGreeting = () => {
   const currentHour = new Date().getHours();

@@ -1,8 +1,8 @@
 import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useRef, useState } from "react";
 import { MID_GROUND_COLOR } from "../../../constants/color-palette";
-import { handleIntent } from "../../helpers/chat-bot.helper";
-import { Message } from "../../types/chat-bot.types";
+import { handleIntent } from "../../helpers/chatBot.helper";
+import { Message } from "../../types/ChatBot";
 
 interface ChatbotProps {
   sx?: React.CSSProperties;

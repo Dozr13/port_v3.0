@@ -2,7 +2,7 @@ import { Box, Button, CircularProgress } from "@mui/material";
 import { FormikProps } from "formik";
 import React from "react";
 import { MID_GROUND_COLOR } from "../../../../constants/color-palette";
-import { InitialContactForm } from "../../../types/initial-types";
+import { InitialContactForm } from "../../../types/InitialTypes";
 
 interface SubmitContactButtonProps {
   formik: FormikProps<InitialContactForm>;

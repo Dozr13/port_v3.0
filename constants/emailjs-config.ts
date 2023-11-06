@@ -1,4 +1,4 @@
-import { InitialContactForm } from "../src/types/initial-types";
+import { InitialContactForm } from "../src/types/InitialTypes";
 
 export const EMAIL_JS_CONFIG = {
   SERVICE_ID:

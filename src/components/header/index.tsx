@@ -1,5 +1,6 @@
 "use client";
-import { AppBar, Toolbar, useMediaQuery } from "@mui/material";
+import { AppBar, Toolbar, Typography, useMediaQuery } from "@mui/material";
+import Link from "next/link";
 import {
   BACKGROUND_COLOR,
   PRIMARY_COLOR,
@@ -29,7 +30,12 @@ const Header: React.FC = () => {
 
   return (
     <AppBar sx={appBarStyle}>
-      <Toolbar>{isMobile ? <MobileNav /> : <DesktopNav />}</Toolbar>
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Link href="/">Wade Pate&apos;s Portfolio</Link>
+        </Typography>
+        {isMobile ? <MobileNav /> : <DesktopNav />}
+      </Toolbar>
     </AppBar>
   );
 };

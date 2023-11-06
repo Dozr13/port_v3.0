@@ -23,3 +23,12 @@ export const cardStyle = {
 };
 
 export const flexGrowStyle = { flexGrow: 1 };
+
+export const typographyStyles = {
+  color: PRIMARY_COLOR,
+  m: 8,
+  textAlign: "center",
+  "@media (max-width:600px)": {
+    m: 2,
+  },
+};

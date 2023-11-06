@@ -1,3 +1,4 @@
+import { FormikHelpers } from "formik";
 import { Dispatch, SetStateAction } from "react";
 
 export interface InitialContactForm {
@@ -16,7 +17,7 @@ export interface ContactCardProps extends ShowEmailProp {
   setShowEmail: Dispatch<SetStateAction<boolean>>;
   onSubmit: (
     values: InitialContactForm,
-    { setSubmitting }: any,
+    { setSubmitting }: FormikHelpers<InitialContactForm>,
   ) => Promise<void>;
 }
 

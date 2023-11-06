@@ -1,4 +1,4 @@
-import Scrolling from "../../components/client-side/scrolling";
+import Scrolling from "../../components/Scrolling";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

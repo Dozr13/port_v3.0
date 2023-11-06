@@ -3,7 +3,7 @@ import {
   BACKGROUND_COLOR,
   PRIMARY_COLOR,
   SECONDARY_COLOR,
-} from "../constants/color-palette";
+} from "../../constants/color-palette";
 
 export const theme: Theme = createTheme({
   palette: {

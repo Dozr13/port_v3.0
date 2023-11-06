@@ -1,7 +1,7 @@
-import BillTraxImage from "../../public/assets/images/BillTraxImage";
-import GitReactCompsImage from "../../public/assets/images/GitReactCompsImage";
-import LoremCakesImage from "../../public/assets/images/LoremCakesImage";
-import ShiftScribeLogo from "../../public/assets/images/ShiftScribeLogo";
+import BillTraxImage from "../../public/assets/images/billTrax.png";
+import GitReactCompsImage from "../../public/assets/images/gitReactComponents.png";
+import LoremCakesImage from "../../public/assets/images/loremCakes.png";
+import ShiftScribeLogo from "../../public/assets/images/shiftscribe-logo.png";
 
 export const projectData = [
   {

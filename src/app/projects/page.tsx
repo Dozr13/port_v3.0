@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
-import ProjectCard from "../../components/cards/project-card";
-import PageContainer from "../../components/page-container";
-import { PRIMARY_COLOR } from "../../constants/color-palette";
+import { PRIMARY_COLOR } from "../../../constants/color-palette";
+import PageContainer from "../../components/PageContainer";
+import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import { projectData } from "../../data/projects";
 
 export default function Projects() {
@@ -16,6 +16,9 @@ export default function Projects() {
           color: PRIMARY_COLOR,
           m: 8,
           textAlign: "center",
+          "@media (max-width:600px)": {
+            m: 2,
+          },
         }}
       >
         Many of my most impactful contributions to projects with companies like
@@ -26,7 +29,7 @@ export default function Projects() {
       </Typography>
       <Grid container spacing={4}>
         {projectData.map((project, index) => (
-          <Grid item md={12} xs={12} key={index}>
+          <Grid item md={6} xs={12} key={index}>
             <ProjectCard
               title={project.title}
               description={project.description}

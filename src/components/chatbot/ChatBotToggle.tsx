@@ -2,7 +2,7 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import { FaCommentDots, FaRegWindowClose } from "react-icons/fa";
-import Chatbot from "./chat-bot";
+import Chatbot from "./ChatBot";
 
 const ChatBotToggle = () => {
   const [isChatVisible, setIsChatVisible] = useState<boolean>(false);

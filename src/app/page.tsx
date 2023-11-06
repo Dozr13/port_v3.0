@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 
-import HoverCard from "../components/cards/hover-card";
-import PageContainer from "../components/page-container";
+import HoverCard from "../components/HoverCard";
+import PageContainer from "../components/PageContainer";
 
 export default function Home() {
   return (

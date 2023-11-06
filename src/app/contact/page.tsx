@@ -1,5 +1,5 @@
-import ContactForm from "../../components/form/contact-form";
-import PageContainer from "../../components/page-container";
+import ContactForm from "../../components/contact/ContactForm/ContactForm";
+import PageContainer from "../../components/PageContainer";
 import Layout from "./layout";
 
 export default function Page() {

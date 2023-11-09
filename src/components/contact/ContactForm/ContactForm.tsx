@@ -21,7 +21,6 @@ const ContactForm = () => {
     values: InitialContactForm,
     { setSubmitting }: any,
   ) => {
-    console.log("### Enter handleSubmit");
     try {
       const valuesRecord: Record<string, unknown> = { ...values };
 
@@ -31,8 +30,6 @@ const ContactForm = () => {
         valuesRecord,
         EMAIL_JS_CONFIG.PUBLIC_KEY,
       );
-
-      console.log("### EmailJS Result:", result);
 
       if (result.status === 200 && result.text === "OK") {
         setSubmitted(true);

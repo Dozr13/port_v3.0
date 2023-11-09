@@ -6,7 +6,7 @@ import ErrorContainer from "../ErrorContainer/ErrorContainer";
 import StyledTextField from "./CustomTextField";
 
 const PhoneNumberField = ({ showEmail }: PhoneNumberFieldProps) => {
-  console.log("PhoneNumberField showEmail", showEmail);
+  // console.log("PhoneNumberField showEmail", showEmail);
   return (
     <Slide
       in={!showEmail}

@@ -41,7 +41,7 @@ export const handleIntent = (
   setUnknownCount: React.Dispatch<React.SetStateAction<number>>,
   context?: ChatContext,
 ): JSX.Element | JSX.Element[] => {
-  console.log("intent: ", intent);
+  // console.log("intent: ", intent);
 
   const handler = intentHandlers[intent];
 

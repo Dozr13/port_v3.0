@@ -28,7 +28,7 @@ const PageContainer = ({
           flexDirection: { xs: "column", md: "row" },
           alignItems: { xs: "center", sm: "flex-start" },
           justifyContent: "space-around",
-          gap: { md: 2 },
+          gap: { md: 1 },
         }}
       >
         <Box

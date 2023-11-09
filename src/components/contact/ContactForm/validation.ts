@@ -2,8 +2,6 @@ import * as Yup from "yup";
 import { REGEX_PHONE_NUMBER } from "../../../../constants/regex";
 
 export const createValidationSchema = (showEmail: boolean) => {
-  console.log("createValidationSchema showEmail", showEmail);
-
   return Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: showEmail

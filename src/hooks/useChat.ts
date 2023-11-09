@@ -27,7 +27,7 @@ export function useChat() {
     );
 
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
 
     const intent = data?.intents?.[0]?.name || "unknown_intent";
     const entities = data?.entities;

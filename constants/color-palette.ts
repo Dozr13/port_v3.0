@@ -5,9 +5,19 @@ export const SECONDARY_BACKGROUND_COLOR = "#094F6E";
 export const BACKGROUND_COLOR = "#022534";
 
 export const ICON_COLORS: IconColorMap = {
-  GitHub: "#333", // GitHub color
-  LinkedIn: "#0A66C2", // LinkedIn blue
-  Resume: "#FFFFFF", // White
-  iOS: "#999999", // An example color for the iOS Apple icon
-  Android: "#3DDC84", // Android green
+  GitHub: "#333",
+  LinkedIn: "#0A66C2",
+  Resume: "#FFFFFF",
+  iOS: "#999999",
+  Android: "#3DDC84",
+  React: "#61DAFB",
+  ReactNative: "#61DAFB",
+  Firebase: "#FFCA28",
+  Express: "#68A063",
+  Axios: "#5A29E4",
+  TypeScript: "#3178C6",
+  Next: "#000000",
+  Node: "#339933",
+  Expo: "#000020",
+  Stripe: "#008CDD",
 };

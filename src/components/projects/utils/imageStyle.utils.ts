@@ -1,3 +1,4 @@
+// TODO: May remove later
 export const getImageStyles = (isSquareImage: boolean) => {
   return isSquareImage
     ? {
@@ -8,6 +9,6 @@ export const getImageStyles = (isSquareImage: boolean) => {
     : {
         mb: 2,
         width: ["15rem", "30rem"],
-        height: ["8rem", "18rem"],
+        height: ["8rem", "15rem"],
       };
 };

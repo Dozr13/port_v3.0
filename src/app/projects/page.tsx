@@ -28,6 +28,7 @@ export default function Projects() {
               iosLink={project.iosLink}
               androidLink={project.androidLink}
               logo={project.logo}
+              technologiesUsed={project.technologiesUsed}
             />
           </Grid>
         ))}

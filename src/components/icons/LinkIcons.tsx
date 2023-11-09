@@ -1,9 +1,6 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
-import React, { CSSProperties } from "react";
-import {
-  BACKGROUND_COLOR,
-  ICON_COLORS,
-} from "../../../constants/color-palette";
+import { Box, IconButton, SxProps, Theme, Tooltip } from "@mui/material";
+import React from "react";
+import { ICON_COLORS } from "../../../constants/color-palette";
 
 interface LinkIconItem {
   link: string;
@@ -13,20 +10,19 @@ interface LinkIconItem {
 
 interface LinkIconsProps {
   linkIcons: Array<LinkIconItem>;
-  size?: string;
   color?: string;
+  sx?: SxProps<Theme>;
 }
 
-const iconStyle: CSSProperties = {
-  color: BACKGROUND_COLOR,
-};
-
-const LinkIcons: React.FC<LinkIconsProps> = ({ linkIcons, size = "1.5em" }) => (
+const LinkIcons: React.FC<LinkIconsProps> = ({ linkIcons, sx }) => (
   <Box
     sx={{
       display: "flex",
       gap: 2,
       justifyContent: "center",
+      "@media (max-width:600px)": {
+        gap: 1,
+      },
     }}
   >
     {linkIcons.map(({ link, icon: Icon, label }) => {
@@ -40,10 +36,12 @@ const LinkIcons: React.FC<LinkIconsProps> = ({ linkIcons, size = "1.5em" }) => (
             href={link}
             target="_blank"
             rel="noopener noreferrer"
+            sx={{
+              "& svg": { color },
+              ...sx,
+            }}
           >
-            <span style={{ color }}>
-              <Icon size={size} />
-            </span>
+            <Icon />
           </IconButton>
         </Tooltip>
       );

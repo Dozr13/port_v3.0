@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
-import { PRIMARY_COLOR } from "../../../constants/color-palette";
-import LinkIcons from "../icons/LinkIcons";
 import { FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
+import { PRIMARY_COLOR } from "../../../constants/color-palette";
+import { footerIconSize } from "../../../constants/styles";
+import LinkIcons from "../icons/LinkIcons";
 
 const footerLinkItems = [
   { link: "https://github.com/Dozr13", icon: FaGithub, label: "GitHub" },
@@ -10,7 +11,7 @@ const footerLinkItems = [
     icon: FaLinkedin,
     label: "LinkedIn",
   },
-  // TODO: Add your Facebook link once you create an account
+  // TODO: Create Facebook account maybe?
   // { link: "https://facebook.com/YourProfile", icon: FaFacebookSquare, label: "Facebook" },
   {
     link: "https://drive.google.com/file/d/1f6Nu83XVvUAG5X92OvxXiOdMmLTOxyPp/view?usp=sharing",
@@ -30,7 +31,11 @@ const FooterLinks = () => (
       },
     }}
   >
-    <LinkIcons linkIcons={footerLinkItems} size="2em" color={PRIMARY_COLOR} />
+    <LinkIcons
+      linkIcons={footerLinkItems}
+      sx={footerIconSize}
+      color={PRIMARY_COLOR}
+    />
   </Box>
 );
 

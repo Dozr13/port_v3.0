@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import { Box, CardMedia } from "@mui/material";
+import { StaticImageData } from "next/image";
 
 interface ProjectCardImageProps {
   logo: StaticImageData;
@@ -18,8 +18,13 @@ const ProjectCardImage: React.FC<ProjectCardImageProps> = ({
   isSquareImage,
   imageStyles,
 }) => (
-  <Box sx={{ ...imageStyles, display: "flex" }}>
-    <Image src={logo} alt={title} width={isSquareImage ? 1500 : 1900} />
+  <Box sx={{ display: "flex" }}>
+    <CardMedia
+      component="img"
+      sx={{ objectFit: "cover", width: "100%" }}
+      image={logo.src}
+      alt={title}
+    />
   </Box>
 );
 

@@ -1,3 +1,4 @@
+import { SxProps, Theme } from "@mui/material";
 import { MID_GROUND_COLOR, PRIMARY_COLOR } from "./color-palette";
 
 const containerStyles = {
@@ -36,4 +37,25 @@ export const typographyStyles = {
 export const chatLinkStyle = {
   color: "#0d6efd",
   textDecoration: "none",
+};
+
+export const footerIconSize: SxProps<Theme> = {
+  fontSize: "4em",
+  "@media (max-width:600px)": {
+    fontSize: "3em",
+  },
+};
+
+export const linkIconSize: SxProps<Theme> = {
+  fontSize: "2.5em",
+  "@media (max-width:600px)": {
+    fontSize: "2em",
+  },
+};
+
+export const technologiesIconSize: SxProps<Theme> = {
+  fontSize: "1.5em",
+  "@media (max-width:600px)": {
+    fontSize: "1em",
+  },
 };

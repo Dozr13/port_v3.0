@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import { typographyStyles } from "../../../constants/styles";
+import projectsImage from "../../../public/assets/images/projects-work.jpg";
 import { PageContainer } from "../../components/containers";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import { projectData } from "../../data/projects";
@@ -9,6 +10,7 @@ export default function Projects() {
     <PageContainer
       mainMessage="My Projects"
       secondaryMessage="Take a look at some of my work"
+      pageImage={projectsImage}
     >
       <Typography variant="h5" sx={typographyStyles}>
         Many of my most impactful contributions to projects with companies like

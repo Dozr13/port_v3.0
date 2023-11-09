@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 
+import selfImage from "../../../public/assets/images/me.jpg";
 import {
   AchievementsCard,
   ExperienceCard,
@@ -11,8 +12,9 @@ import { GridItemWrapper, PageContainer } from "../../components/containers";
 const Page = () => {
   return (
     <PageContainer
-      mainMessage="About Wade"
+      mainMessage="About Me"
       secondaryMessage="Discover my Journey and Skills"
+      pageImage={selfImage}
     >
       <Grid container spacing={4}>
         <Grid container item spacing={4} alignItems="stretch">

@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ReactElement } from "react";
 import ChatBotToggle from "../components/chatbot/buttons/ChatBotToggle";
 import Header from "../components/header";
 import ThemeRegistry from "../utils/ThemeRegistry";
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ThemeRegistry options={{ key: "mui-theme" }}>
-          <Header />
+          <Header>{children as ReactElement}</Header>
           <Box>{children}</Box>
           <ChatBotToggle />
         </ThemeRegistry>

@@ -1,19 +1,17 @@
 import HoverCard from "../HoverCard";
 
+const descriptionWithDividers = `
+  From the precision-driven oilfields to the tech sphere, I channel a relentless work ethic into innovative software solutions. My mantra? Adapt, evolve, and excel.
+  ---divider---
+  There's a story behind the code - a journey of continuous learning and problem-solving. Curious? Dive into my narrative.
+`;
+
 const AboutIntroCard = () => {
   return (
     <HoverCard
       href="/about"
-      title="About Me"
-      description={[
-        "Hi there! I'm Wade,",
-        <br key="line-break-1" />,
-        "I'm a passionate full-stack developer skilled in React Next with TypeScript, Nest.js, PostgreSQL, and much more.",
-        <br key="line-break-2" />,
-        "I have a strong affinity for Material UI when it comes to styling.",
-        <br key="line-break-3" />,
-        "Dive in to know more about my journey and skills.",
-      ]}
+      title="A Bit About Wade"
+      description={descriptionWithDividers}
     />
   );
 };

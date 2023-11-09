@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {
   BACKGROUND_COLOR,
   PRIMARY_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
+  SECONDARY_DARK_COLOR,
 } from "../../../constants/color-palette";
 import DrawerItem from "./DrawerItem";
 import { navItems } from "./index";
@@ -22,7 +22,7 @@ const MobileNav: React.FC = () => {
         onClose={closeDrawer}
         PaperProps={{
           sx: {
-            background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
+            background: `linear-gradient(to bottom, ${SECONDARY_DARK_COLOR}, ${BACKGROUND_COLOR})`,
             color: PRIMARY_COLOR,
           },
         }}

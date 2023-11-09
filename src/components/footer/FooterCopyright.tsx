@@ -7,7 +7,8 @@ const Copyright = () => (
     color={PRIMARY_COLOR}
     sx={{ textAlign: "center" }}
   >
-    © {new Date().getFullYear()} Wade Pate. All rights reserved.
+    © {new Date().getFullYear()} Wade Pate.
+    {/* All rights reserved. */}
   </Typography>
 );
 

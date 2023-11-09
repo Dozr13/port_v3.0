@@ -4,16 +4,16 @@ import Link from "next/link";
 import {
   BACKGROUND_COLOR,
   PRIMARY_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
+  SECONDARY_DARK_COLOR,
 } from "../../../constants/color-palette";
 import { theme } from "../../utils/theme";
 import DesktopNav from "./DesktopNav";
+import HideOnScroll, { HideOnScrollProps } from "./HideOnScoll";
 import MobileNav from "./MobileNav";
 
 const appBarStyle = {
-  position: "absolute",
   top: 0,
-  background: `linear-gradient(to bottom, ${SECONDARY_BACKGROUND_COLOR}, ${BACKGROUND_COLOR})`,
+  background: `linear-gradient(to bottom, ${SECONDARY_DARK_COLOR}, ${BACKGROUND_COLOR})`,
   opacity: "70%",
   borderBottom: `2px solid ${PRIMARY_COLOR}`,
 };
@@ -25,18 +25,20 @@ export const navItems = [
   { href: "/contact", label: "Contact" },
 ];
 
-const Header: React.FC = () => {
+const Header = (props: HideOnScrollProps) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <AppBar sx={appBarStyle}>
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link href="/">Wade Pate&apos;s Portfolio</Link>
-        </Typography>
-        {isMobile ? <MobileNav /> : <DesktopNav />}
-      </Toolbar>
-    </AppBar>
+    <HideOnScroll {...props}>
+      <AppBar sx={{ ...appBarStyle }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link href="/">Wade Pate&apos;s Portfolio</Link>
+          </Typography>
+          {isMobile ? <MobileNav /> : <DesktopNav />}
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 

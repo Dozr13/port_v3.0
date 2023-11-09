@@ -1,12 +1,17 @@
 import HoverCard from "../HoverCard";
 
+const descriptionWithDividers = `
+  Commanding React, TypeScript, Nest.js, and PostgreSQL with finesse, I'm the tech maestro you're seeking.
+  ---divider---
+  Let's convert your ideas into impactful realities. Connect with me, and we'll embark on a journey to craft digital excellence. Together, we'll achieve the remarkable.
+`;
+
 const ContactIntroCard = () => {
   return (
     <HoverCard
       href="/contact"
-      title="Contact"
-      description="Looking for an expert in React, TypeScript, and GraphQL? You've found your guy."
-      descriptionLineTwo="Whether it's a budding idea or a complex challenge, I thrive in transforming concepts into reality. Drop me a line, and let's embark on a new journey together. Your vision, my expertise – together, we can create the extraordinary."
+      title="Let's Connect"
+      description={descriptionWithDividers}
     />
   );
 };

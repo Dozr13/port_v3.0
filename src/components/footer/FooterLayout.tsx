@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import {
   MID_GROUND_COLOR,
-  SECONDARY_BACKGROUND_COLOR,
+  SECONDARY_DARK_COLOR,
 } from "../../../constants/color-palette";
 import FooterCopyright from "./FooterCopyright";
 import FooterLinks from "./FooterLinks";
@@ -13,7 +13,7 @@ const FooterLayout = () => (
       flexDirection: "column",
       alignItems: "center",
       position: "relative",
-      backgroundColor: SECONDARY_BACKGROUND_COLOR,
+      backgroundColor: SECONDARY_DARK_COLOR,
       padding: 3,
       borderTop: `1px solid ${MID_GROUND_COLOR}`,
       marginTop: 3,

@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { StaticImageData } from "next/image";
 import React, { useMemo } from "react";
-import { SECONDARY_BACKGROUND_COLOR } from "../../../../constants/color-palette";
+import { SECONDARY_DARK_COLOR } from "../../../../constants/color-palette";
 import {
   cardStyle,
   linkIconSize,
@@ -75,7 +75,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         sx={{
           py: 2,
           px: 3,
-          backgroundColor: SECONDARY_BACKGROUND_COLOR,
+          backgroundColor: SECONDARY_DARK_COLOR,
           borderRadius: 2,
           mt: "auto",
         }}

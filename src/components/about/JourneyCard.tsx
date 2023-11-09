@@ -1,13 +1,7 @@
 import HoverCard from "../HoverCard";
 
-const JourneyCard = () => {
-  return (
-    <HoverCard
-      id="journey-from-oilfields"
-      title="The Journey from Oilfields to Code"
-      description={
-        <>
-          I began my professional career in the oilfields, where hard work,
+const descriptionWithDividers = `
+I began my professional career in the oilfields, where hard work,
           precision, and resilience were the keys to success. These years gave
           me valuable lessons on teamwork, problem-solving, and the importance
           of continually adapting to new challenges.
@@ -24,8 +18,15 @@ const JourneyCard = () => {
           hard work, innovation, and creativity. If you&apos;re looking for a
           developer who can bring not just coding skills but a diverse range of
           life experiences to the table, you&apos;ve come to the right place.
-        </>
-      }
+`;
+
+const JourneyCard = () => {
+  return (
+    <HoverCard
+      id="journey-from-oilfields"
+      title="The Journey from Oilfields to Code"
+      description={descriptionWithDividers}
+      useRawDescription
     />
   );
 };

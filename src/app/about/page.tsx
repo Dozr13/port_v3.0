@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 
-import selfImage from "../../../public/assets/images/me.jpg";
+import selfImage from "../../../public/assets/images/me.jpeg";
 import {
   AchievementsCard,
   ExperienceCard,

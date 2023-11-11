@@ -14,7 +14,7 @@ const footerLinkItems = [
   // TODO: Create Facebook account maybe?
   // { link: "https://facebook.com/YourProfile", icon: FaFacebookSquare, label: "Facebook" },
   {
-    link: "https://drive.google.com/file/d/1f6Nu83XVvUAG5X92OvxXiOdMmLTOxyPp/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1Gkm-Yv5LdLFpP4pJnYQM8kz7-uzZFT1H/view?usp=sharing",
     icon: FaFileAlt,
     label: "Resume",
   },

@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import Link from "next/link";
 import React from "react";
-import { navItems } from "./index"; // Assuming navItems will be in the Header's main file
+import { navItems } from "./index";
 
 const DesktopNav: React.FC = () => (
   <>

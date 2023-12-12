@@ -5,20 +5,20 @@ import { footerIconSize } from "../../../constants/styles";
 import LinkIcons from "../icons/LinkIcons";
 
 const footerLinkItems = [
-  { link: "https://github.com/Dozr13", icon: FaGithub, label: "GitHub" },
+  { link: process.env.GITHUB_LINK, icon: FaGithub, label: "GitHub" },
   {
-    link: "https://linkedin.com/in/wadejp8",
+    link: process.env.LINKEDIN_LINK,
     icon: FaLinkedin,
     label: "LinkedIn",
   },
   // TODO: Create Facebook account maybe?
   // { link: "https://facebook.com/YourProfile", icon: FaFacebookSquare, label: "Facebook" },
   {
-    link: "https://drive.google.com/file/d/1Pk6NDt1OjjZA3nwG3L9wDCUnSUiVfItb/view?usp=sharing",
+    link: process.env.RESUME_LINK,
     icon: FaFileAlt,
     label: "Resume",
   },
-];
+].filter((item) => item.link);
 
 const FooterLinks = () => (
   <Box

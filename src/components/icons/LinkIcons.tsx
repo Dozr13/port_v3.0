@@ -1,12 +1,7 @@
 import { Box, IconButton, SxProps, Theme, Tooltip } from "@mui/material";
 import React from "react";
 import { ICON_COLORS } from "../../../constants/color-palette";
-
-interface LinkIconItem {
-  link: string;
-  icon: React.ComponentType<{ size?: string }>;
-  label: string;
-}
+import { LinkIconItem } from "../../types/common";
 
 interface LinkIconsProps {
   linkIcons: Array<LinkIconItem>;

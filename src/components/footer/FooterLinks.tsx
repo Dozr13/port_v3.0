@@ -3,6 +3,7 @@ import { FaFileAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import { PRIMARY_COLOR } from "../../../constants/color-palette";
 import { footerIconSize } from "../../../constants/styles";
 import LinkIcons from "../icons/LinkIcons";
+import { LinkIconItem } from "../../types/common";
 
 const footerLinkItems = [
   { link: process.env.GITHUB_LINK, icon: FaGithub, label: "GitHub" },
@@ -18,7 +19,7 @@ const footerLinkItems = [
     icon: FaFileAlt,
     label: "Resume",
   },
-].filter((item) => item.link);
+].filter((item): item is LinkIconItem => item.link !== undefined);
 
 const FooterLinks = () => (
   <Box

@@ -1,4 +1,4 @@
-type IconColorMap = {
+export type IconColorMap = {
   [key in
     | "GitHub"
     | "LinkedIn"
@@ -16,3 +16,9 @@ type IconColorMap = {
     | "Expo"
     | "Stripe"]: string;
 };
+
+export interface LinkIconItem {
+  link: string;
+  icon: React.ComponentType<{ size?: string }>;
+  label: string;
+}

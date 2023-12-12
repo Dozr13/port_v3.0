@@ -1,3 +1,5 @@
+import { IconColorMap } from "../src/types/common";
+
 export const WHITE = "#FFF";
 export const PRIMARY_COLOR = "#E4F5FF";
 export const SECONDARY_COLOR = "#96C7D5";
